@@ -1,0 +1,17 @@
+{
+  "name": "bridge-time",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Live travel time across the 25 de Abril bridge (Lisbon) + iOS widget",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types",
+    "typecheck": "npm run types && tsgo --noEmit"
+  },
+  "devDependencies": {
+    "@typescript/native-preview": "latest",
+    "typescript": "^5.7.0",
+    "wrangler": "latest"
+  }
+}
