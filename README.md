@@ -2,16 +2,19 @@
 
 Live travel time across the [25 de Abril bridge](https://en.wikipedia.org/wiki/25_de_Abril_Bridge) in Lisbon, served as a Cloudflare Worker, with an iOS [Scriptable](https://scriptable.app) widget for your home screen.
 
-The direction flips automatically by Lisbon local time — morning shows `Caparica → Alcântara` (into town), afternoon shows the reverse (going home). Override with `?dir=to-alcantara|to-caparica`.
+The api is public (rate limted) if you don't want to deploy your own and there is a [iOS widget](./widget/bridge-time.js) you can copy and paste.
 
-The api is public, with ratelimits and there is a [widget](./widget/bridge-time.js) you can copy and paste if you dont want to deploy.
+<img width="2048" height="1580" alt="25_De_Abril_Bridge_(226290561)" src="https://github.com/user-attachments/assets/98607ee0-2531-44b4-9d49-60f794a54c20" />
+
+<img width="1168" height="540" alt="IMG_6988" src="https://github.com/user-attachments/assets/a2df7c88-f38c-466f-bbee-be4f88f663f0" />
 
 ## API
+
+The direction flips automatically by Lisbon local time — morning shows `Caparica → Alcântara` (into town), afternoon shows the reverse (going home). Override with `?dir=to-alcantara|to-caparica`.
 
 ```
 GET /bridge                     # JSON, direction auto-picked
 GET /bridge?dir=to-alcantara    # override
-GET /bridge?dir=to-caparica
 GET /health
 ```
 
@@ -64,8 +67,6 @@ Wrangler loads `.env` automatically for `wrangler dev`. For production, use `wra
 6. Long-press the new widget → Edit Widget → Script = `Bridge Time`, When Interacting = `Run Script`.
 
 iOS refreshes widgets on its own schedule (~15–30 min). Tap to force a refresh.
-
-<img width="1170" height="817" alt="IMG_6988" src="https://github.com/user-attachments/assets/e5de9329-f652-47d2-8413-f8749c65e706" />
 
 ## Customise for a different route
 
