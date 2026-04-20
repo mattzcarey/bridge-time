@@ -1,8 +1,6 @@
 # Bridge time
 
-Live travel time across the [25 de Abril bridge](https://en.wikipedia.org/wiki/25_de_Abril_Bridge) in Lisbon, served as a Cloudflare Worker, with an iOS [Scriptable](https://scriptable.app) widget for your home screen.
-
-The api is public (rate limted) if you don't want to deploy your own and there is a [iOS widget](./widget/bridge-time.js) you can copy and paste.
+Live travel time API for the [25 de Abril bridge](https://en.wikipedia.org/wiki/25_de_Abril_Bridge) in Lisbon, served as a Cloudflare Worker, with an iOS [Scriptable](https://scriptable.app) widget for your home screen. The api is public and rate limited or you can deploy it yourself :) 
 
 <img width="2048" height="1580" alt="25_De_Abril_Bridge_(226290561)" src="https://github.com/user-attachments/assets/98607ee0-2531-44b4-9d49-60f794a54c20" />
 
