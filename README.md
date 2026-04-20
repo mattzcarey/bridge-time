@@ -1,10 +1,13 @@
-# bridge-time
+# Bridge time
 
 Live travel time across the [25 de Abril bridge](https://en.wikipedia.org/wiki/25_de_Abril_Bridge) in Lisbon, served as a Cloudflare Worker, with an iOS [Scriptable](https://scriptable.app) widget for your home screen.
 
 The direction flips automatically by Lisbon local time — morning shows `Caparica → Alcântara` (into town), afternoon shows the reverse (going home). Override with `?dir=to-alcantara|to-caparica`.
 
 A waypoint in the middle of the bridge pins the route so live traffic can't reroute around the bridge and make the delay vs free-flow look artificially small at rush hour.
+
+<img width="1170" height="817" alt="IMG_6988" src="https://github.com/user-attachments/assets/e5de9329-f652-47d2-8413-f8749c65e706" />
+
 
 ## API
 
