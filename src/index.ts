@@ -49,7 +49,11 @@ async function getBridgeTime(direction: Direction, apiKey: string) {
     `https://api.tomtom.com/routing/1/calculateRoute/${origin}:${BRIDGE_WAYPOINT}:${dest}/json` +
     `?key=${apiKey}&traffic=true&travelMode=car&routeType=fastest&computeTravelTimeFor=all`;
 
-  const res = await fetch(url);
+  // Cache TomTom responses at the edge so repeated hits within the same
+  // minute don't burn quota. Traffic moves slowly enough that 60s is fine.
+  const res = await fetch(url, {
+    cf: { cacheTtl: 60, cacheEverything: true },
+  });
   if (!res.ok) {
     const body = await res.text();
     throw new Error(`tomtom HTTP ${res.status}: ${body.slice(0, 200)}`);
