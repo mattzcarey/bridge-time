@@ -4,10 +4,7 @@ Live travel time across the [25 de Abril bridge](https://en.wikipedia.org/wiki/2
 
 The direction flips automatically by Lisbon local time — morning shows `Caparica → Alcântara` (into town), afternoon shows the reverse (going home). Override with `?dir=to-alcantara|to-caparica`.
 
-A waypoint in the middle of the bridge pins the route so live traffic can't reroute around the bridge and make the delay vs free-flow look artificially small at rush hour.
-
-<img width="1170" height="817" alt="IMG_6988" src="https://github.com/user-attachments/assets/e5de9329-f652-47d2-8413-f8749c65e706" />
-
+The api is public, with ratelimits and there is a [widget](./widget/bridge-time.js) you can copy and paste if you dont want to deploy.
 
 ## API
 
@@ -17,8 +14,6 @@ GET /bridge?dir=to-alcantara    # override
 GET /bridge?dir=to-caparica
 GET /health
 ```
-
-Public, rate-limited to 5 requests per 60 seconds per IP via the Workers rate limiting binding.
 
 Response:
 
@@ -39,7 +34,7 @@ Response:
 
 ## Deploy
 
-You need a [TomTom Developer](https://developer.tomtom.com) key — free tier is 2,500 requests/day, more than enough for a widget.
+You need a [TomTom Developer](https://developer.tomtom.com) key — free tier is 2,500 requests/day.
 
 ```bash
 npm install
@@ -70,15 +65,11 @@ Wrangler loads `.env` automatically for `wrangler dev`. For production, use `wra
 
 iOS refreshes widgets on its own schedule (~15–30 min). Tap to force a refresh.
 
+<img width="1170" height="817" alt="IMG_6988" src="https://github.com/user-attachments/assets/e5de9329-f652-47d2-8413-f8749c65e706" />
+
 ## Customise for a different route
 
-The route and bridge are hard-coded in `src/index.ts`:
-
-- `CAPARICA` / `ALCANTARA` — endpoints (lat/lon)
-- `BRIDGE_WAYPOINT` — forces the path through a specific point
-- `defaultDirection()` — morning/afternoon flip logic
-
-Replace with your own coordinates to repurpose this for any bridge or crossing.
+The route and bridge are hard-coded in `src/index.ts`. I guess you could use this for another bridge. 
 
 ## Licence
 
